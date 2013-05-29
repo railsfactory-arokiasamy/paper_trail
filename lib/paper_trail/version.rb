@@ -1,6 +1,6 @@
 class Version < ActiveRecord::Base
   belongs_to :item, :polymorphic => true
-  validates_presence_of :event
+  validates :event, :presence => true
   attr_accessible :item_type, :item_id, :event, :whodunnit, :object, :object_changes
 
   after_create :enforce_version_limit!
